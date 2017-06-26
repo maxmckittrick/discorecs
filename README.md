@@ -10,5 +10,3 @@ Discorecs is based on real release metadata collected from Discogs data dumps an
 2. Once the three clusters are spun up, an XML copy of a Discogs data dump will need to be used. For the purposes of the demo, I have made a copy of the June data dump available on S3 (https://console.aws.amazon.com/s3/buckets/discogs-recommender/dumps/), but if you wish to use a more current (or previous) data dump, Discogs maintains a repository here: http://data.discogs.com/.
 
 3. In the "kafka_cluster_scripts" directory, you will find all the necessary scripts to create the Kafka topics and start the producers. start_kafka_producers.sh will create the topics and start each producer, or the collection and activity producers may be started independently by running the commands included in the shell script. Each producer will run until canceled in the terminal.
-
-4. 
