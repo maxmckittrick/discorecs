@@ -8,5 +8,5 @@ To deploy clusters exactly as I've configred them for my demo, use the scripts i
 
 3. Additionally, the scripts in this directory expect two .txt files in your `~/.ssh/` directory: `sg.txt`, which is a text file with one line listing your security group (e.g.; sg-XXX), and similarly, `subnet.txt`, a text file with one line listing your subnet (e.g.; subnet-XXX). If you're not sure what to put in these two files, you can view your security groups with `peg aws security-groups`, and your subnets with `peg aws subnets`. 
 
-3. You are now ready to deploy the clusters. The scripts I've included will automatically install all the necessary technologies on the clusters and start the necessary services. For example, the deploy the Cassandra cluster:
+3. You are now ready to deploy the clusters. The scripts I've included will automatically install all the necessary technologies on the clusters and start the necessary services. For example, to deploy the Cassandra cluster:
 `$ ~/discorecs/deployment/cassandra/cassandra.sh`
