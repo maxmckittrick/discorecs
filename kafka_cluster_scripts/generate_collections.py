@@ -16,7 +16,7 @@ while 1==1:
     user_collection.append(i) #each simulated user will have 150-300 albums in their collection
   user_id_kv[0]=user_id
   user_id_kv[1]=user_collection
-  user_counter += 1
+  user_counter+=1
   if user_counter%10000==0:
     print(str(user_counter)+" users sent to topic user_collection_stream")
     producer.send("user_collection_stream",user_id_kv)

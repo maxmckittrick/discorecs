@@ -1,0 +1,15 @@
+blues
+brass
+childrens
+classical
+electronic
+folk
+funk
+hiphop
+jazz
+latin
+nonmusic
+pop
+reggae
+rock
+stagescreen
