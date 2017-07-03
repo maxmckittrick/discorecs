@@ -108,9 +108,13 @@ new_users_df=sqlContext.sql("select * from users_scored where recommended_user i
 #assign recommended users and releases
 def user_recommendations(row):
   highest_rank=new_users_df.row1["max(blues_score, brass_score, childrens_score, classical_score, electronic_score, folk_score, funk_score, hiphop_score, jazz_score, latin_score, nonmusic_score, pop_score, reggae_score, rock_score, stagescreen_score)"] #identify favorite genre
+  highest_rank_value=users+scored_df.select(highest_rank+"_score from users_scored where user_id like "+row.user_id)
+  collections=.select("collection from users_scored") #used for recommended release aggregation
   tiebreak_rank=new_users_df.row2["max(blues_score, brass_score, childrens_score, classical_score, electronic_score, folk_score, funk_score, hiphop_score, jazz_score, latin_score, nonmusic_score, pop_score, reggae_score, rock_score, stagescreen_score)"] #identify 2nd favorite genre
   recommended_user_index_range=[highest_rank]_ranked_df.select("user_id from users_scored where "+highest_rank+"_score > "+highest_rank_value)
   recommended_user=[tiebreak_rank]_ranked_df.row1["max("+tiebreak_rank+"_score)"]
+  recommended_release_df=new_users_df.join(highest_rank" from users_scored", col("collection")==col("collection"))
+  recommended_release=recommended_release_df.groupby("collection").row1[] #group by items in all collections, select first item
   return (row.recommended_user, row.recommended_release)
 for row in new_users_df.rdd.collect()
   user_recommendations(row)
